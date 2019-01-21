@@ -1,10 +1,11 @@
 package ru.job4j.calculate;
-
 /**
-*Class Calculate решение задачи части 001 урок1.
-*@author VasiliiOrlov
-*@since 21.01.2019
-*/
+ * Calculate.
+ *
+ * @author VasiliiOrlov
+ * @version $Id$
+ * @since 21.01.2019
+ */
 public class Calculate
 {
 	/**
@@ -15,4 +16,13 @@ public class Calculate
 	{
 		System.out.println("Hello World");
 	}
+	/**
+* Method echo.
+* @param name Your name.
+* @return Echo plus your name.
+*/
+public String echo(String name) 
+{
+    return "Echo, echo, echo : " + name;
+}
 }
