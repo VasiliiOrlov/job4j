@@ -14,7 +14,6 @@ public class Max {
      * @return - return greater number.
      */
     public int max(int first, int second) {
-        int more = first > second ? first : second;
-        return more;
+        return first > second ? first : second;
     }
 }
