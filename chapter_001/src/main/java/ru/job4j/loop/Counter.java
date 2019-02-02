@@ -16,10 +16,9 @@ public class Counter {
     public int summa(int start, int finish) {
         int g = 0;
         for (; start <= finish; start++) {
-            if (start % 2 != 0) {
-                continue;
+            if (start % 2 == 0) {
+                g = g + start;
             }
-            g = g + start;
         }
         return g;
     }
