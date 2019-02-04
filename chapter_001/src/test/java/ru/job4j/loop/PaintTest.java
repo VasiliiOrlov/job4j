@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 public class PaintTest {
     /**
-     * Method whenPyramid2 - check point pyramid height = 2.
+     * Method whenPyramid2 - check paint pyramid height = 2.
      */
 
     @Test
@@ -31,7 +31,7 @@ public class PaintTest {
     }
 
     /**
-     * Method whenPyramid3 - check point pyramid height = 3.
+     * Method whenPyramid3 - check paint pyramid height = 3.
      */
     @Test
     public void whenPyramid3() {
@@ -43,6 +43,44 @@ public class PaintTest {
                         .add("  ^  ")
                         .add(" ^^^ ")
                         .add("^^^^^")
+                        .toString()
+                )
+        );
+    }
+
+    /**
+     * Method whenPyramid4Right - check paint right part pyramid height = 3.
+     */
+    @Test
+    public void whenPyramid4Right() {
+        Paint paint = new Paint();
+        String rst = paint.rightTrl(4);
+        System.out.println(rst);
+        assertThat(rst, is(new
+                        StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add("^   ")
+                        .add("^^  ")
+                        .add("^^^ ")
+                        .add("^^^^")
+                        .toString()
+                )
+        );
+    }
+
+    /**
+     * Method whenPyramid4Left - check paint left part pyramid height = 3.
+     */
+    @Test
+    public void whenPyramid4Left() {
+        Paint paint = new Paint();
+        String rst = paint.leftTrl(4);
+        System.out.println(rst);
+        assertThat(rst, is(new
+                        StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add("   ^")
+                        .add("  ^^")
+                        .add(" ^^^")
+                        .add("^^^^")
                         .toString()
                 )
         );
