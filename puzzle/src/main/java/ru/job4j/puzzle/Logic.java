@@ -35,7 +35,7 @@ public class Logic {
         return rst;
     }
 
-    public boolean isFree(Cell ... cells) {
+    public boolean isFree(Cell... cells) {
         boolean result = cells.length > 0;
         for (Cell cell : cells) {
             if (this.findBy(cell) != -1) {
@@ -67,28 +67,34 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-        for (int row = 0, column = 0; row < table.length - 1 && column < table.length - 1;) {
-            if (table[row][column] == table[row][column + 1] && table[row][column] == 1) {
-                column++;
-                if (column == table.length - 2) {
-                    result = true;
+        for (int row = 0, column = 0; row < table.length || column < 5; row++, column++) {
+            if (table[row][column] == 1) {
+                for (int column2 = 0, row2 = row; column2 < table.length - 1;) {
+                    if (table[row2][column2] == table[row2][column2 + 1] & table[row2][column2] == 1) {
+                        if (column2 == table.length - 2) {
+                            result = true;
+                        }
+                        column2++;
+                    } else {
+                        break;
+                    }
                 }
-            } else {
-                row++;
-            }
-        }
-        for (int row = 0, column = 0; row < table.length - 1 && column < table.length - 1;) {
-            if (table[row][column] == table[row + 1][column] && table[row][column] == 1) {
-                row++;
-                if (row == table.length - 2) {
-                    result = true;
+                for (int row3 = 0, column3 = column; row3 < table.length - 1;) {
+                    if (table[row3][column3] == table[row3 + 1][column3] & table[row3][column3] == 1) {
+                        if (row3 == table.length - 2) {
+                            result = true;
+                        }
+                        row3++;
+                    } else {
+                        break;
+                    }
                 }
-            } else {
-                column++;
+
             }
         }
         return result;
     }
+
 
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];
@@ -102,4 +108,5 @@ public class Logic {
         }
         return table;
     }
+
 }
