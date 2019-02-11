@@ -29,7 +29,7 @@ public class ArrayChar {
         boolean result = true;
         char[] value = prefix.toCharArray();
         for (int i = 0; i < value.length; i++) {
-            if (i < data.length) { //на случай если префикс длинее слова
+            if (i < data.length) {
                 if (data[i] != value[i]) {
                     result = false;
                 }
