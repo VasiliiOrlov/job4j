@@ -12,7 +12,7 @@ public class Tracker {
     /**
      * Array requests
      */
-    private final Item[] items = new Item[100];
+    private final Item[] items = new Item[100]; 
     /**
      * Cell pointer for new application
      */
@@ -42,14 +42,12 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
+                result = true;
                 break;
             }
-        }
-        if (findById(id).equals(item)) {
-            result = true;
         }
         return result;
     }
@@ -61,10 +59,10 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
-                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
-                items[items.length - 1] = null;
+                System.arraycopy(items, i + 1, items, i, position - i - 1);
+                items[position - 1] = null;
                 result = true;
                 break;
             }
@@ -91,12 +89,14 @@ public class Tracker {
      */
     public Item[] findByName(String key) {
         Item[] result = new Item[position];
+        int j = 0;
         for (int i = 0; i != items.length; i++) {
             if (items[i] != null && items[i].getName().equals(key)) {
-                result[i] = items[i];
+                result[j] = items[i];
+                j++;
             }
         }
-        return result;
+        return Arrays.copyOf(result, j);
     }
 
     /**
